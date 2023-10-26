@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .div1{
+    background-color:orchid;
+    box-shadow: 3px 3px 10px violet;
+    width:35%;
+    height:550px;
+    text-align: center;
+    border-radius: 30px;
+    padding-top: 20px;
+}
+.btn{
+    appearance: none;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: white;
+    cursor:pointer;
+    display: inline-block;
+    font-family:monospace;
+    font-size: 20px;
+    padding:20px;
+    outline: none;
+    text-align: center;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+}
+  
+.btn:disabled {
+    pointer-events: none;
+}
+  
+.btn:hover {
+    color: black;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+  
+.btn:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+#final{
+    width:70%;
+    height:80px;
+    background-color: white;
+    border-radius: 30px;
+    font-size: 20px;
+    
+}
+#item1{
+    height:135px;
+}
+#item2{
+    width:110px;
+}
+#minus{
+    height:135px;
+}
+    </style>
+    <script>
+        function clear1(){
+    
+    document.getElementById('final').value="";
+    
+ }
+ 
+ function button(val){
+    document.getElementById('final').value+=val
+ }
+ function result(){
+     let result1=document.getElementById('final').value
+     let s=eval(result1)
+     document.getElementById('final').value=s
+ }
+    </script>
+
+</head>
+<body>
+    <center>
+        <div class="div1"><center>
+            <input id="final">
+            </center>
+            <br><br>
+            <center>
+            <div class="div2">
+                <table>
+                    <tr>
+            <td><input type="button" value="%" class="btn" onclick="button('%')"></td>
+                <!--<td> <input type="button" value="^" class="btn" id="powerB" onclick="power1()"></td>-->
+                    <td><input type="button" value="/" class="btn" onclick="button('/')"></td>
+                    <td ><input type="button" value="*" class="btn" onclick="button('*')"></td>
+                    <td rowspan="2"><input type="button" id="minus" value="-" class="btn" onclick="button('-')"></td>
+                    </tr>
+                    <tr>
+                        <td> <input type="button" value="7" class="btn" onclick="button(7)"></td>
+                            <td><input type="button" value="8" class="btn" onclick="button(8)"></td>
+                                <td><input type="button" value="9" class="btn" onclick="button(9)"></td>
+                                    
+                    </tr>
+                    <tr>
+                        <td> <input type="button" value="4" class="btn" onclick="button(4)"></td>
+                            <td> <input type="button" value="5" class="btn" onclick="button(5)"></td>
+                                <td> <input type="button" value="6" class="btn" onclick="button(6)"></td>
+                                <td rowspan="2"><input type="button" value="+" id="item1" class="btn" onclick="button('+')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="1" class="btn" onclick="button(1)"></td>
+                            <td><input type="button" value="2" class="btn" onclick="button(2)"></td>
+                                <td><input type="button" value="3" class="btn" onclick="button(3)"></td>
+                        
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="button" value="0" id="item2" class="btn" onclick="button(0)"></td>
+                            <td><input type="button" value="." class="btn" onclick="button('.')"></td>
+                            <td><input type="button" value="=" class="btn" onclick="result()"></td>
+                    </tr>
+                </table>
+                <input type="button" value="Clear" class="btn" id="clear" onclick="clear1()">
+        
+            </div>
+        </center>
+    </center>
+</body>
+</html>
